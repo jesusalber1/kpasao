@@ -111,7 +111,7 @@
         deleteSpeed: 200,
         lifeLike: true,
         afterComplete: async (instance) => {
-          instance.destroy(); // Remove cursor
+          instance.destroy(); // Delete cursor
           document.getElementById('subtitle').classList.toggle('hidden');
           document.getElementById('links').classList.toggle('hidden');
         },
@@ -120,20 +120,20 @@
         .type(' ha', { delay: waitInterval })
         .type(' pasado?', { delay: waitInterval })
         .move(-11)
-        .delete(3) // Remove '¿Qué'
+        .delete(3) // Delete 'Qué'
         .type('K', { delay: waitInterval })
         .move(2)
-        .delete(1, { delay: waitInterval }) // Remove space
+        .delete(1, { delay: waitInterval }) // Delete space
         .move(7)
-        .delete(1, { delay: waitInterval }) // Remove 'd'
+        .delete(1, { delay: waitInterval }) // Delete 'd'
         .move(-4)
-        .delete(1, { delay: waitInterval }) // Remove space
+        .delete(1, { delay: waitInterval }) // Delete space
         .move(-1)
-        .delete(1, { delay: waitInterval }) // Remove space
+        .delete(1, { delay: waitInterval }) // Delete space
         .move(-1)
-        .delete(1, { delay: waitInterval }) // Remove space
+        .delete(1, { delay: waitInterval }) // Delete '¿'
         .move(8, { delay: waitInterval })
-        .delete(1, { delay: waitInterval }) // Remove space
+        .delete(1, { delay: waitInterval }) // Delete '?'
         .type('.')
         .go();
     </script>
