@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kpasao</title>
+    <link
+      rel="alternate icon"
+      class="js-site-favicon"
+      type="image/png"
+      href="favicon.png"
+    />
+    <link
+      rel="icon"
+      class="js-site-favicon"
+      type="image/svg+xml"
+      href="favicon.svg"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Petrona&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.podfonts.com/releases/v1.1.0/css/podfonts.css"
+      integrity="sha384-JH5tKI4CUyK92X34BURCL05JcPhlKOfX7IlfBvkcRn75+/o6JU2PmnlKwOwsYfel"
+      crossorigin="anonymous"
+    />
+    <style>
+      html,
+      body {
+        height: 100%;
+      }
+
+      body {
+        background-color: #8fb9a8;
+        color: #325d79;
+        font-family: 'Petrona', sans-serif;
+        margin: 0;
+      }
+
+      h1 {
+        font-size: 2em;
+        margin: 0.5em;
+        text-align: center;
+      }
+
+      h2#subtitle {
+        font-size: 1em;
+        margin: 0.5em;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      aside#links {
+        font-size: 2em;
+        margin: 0.5em;
+      }
+
+      .hidden {
+        opacity: 0;
+      }
+
+      .transition-05s {
+        transition: opacity 0.5s ease-in;
+        transition-delay: 0.5s;
+      }
+
+      .transition-1s {
+        transition: opacity 1s ease-in;
+        transition-delay: 1s;
+      }
+
+      .flex-container {
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        justify-content: center;
+        margin: 0;
+        padding: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <main class="flex-container">
+      <h1 id="title"></h1>
+      <h2 id="subtitle" class="hidden transition-05s">El podcast aleatorio.</h2>
+      <aside id="links" class="hidden transition-1s">
+        <a href="#"><i class="pf pf-a-apple-podcasts"></i></a>
+        <a href="#"><i class="pf pf-a-google-podcasts"></i></a>
+        <a href="#"><i class="pf pf-a-spotify"></i></a>
+      </aside>
+    </main>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/typeit/8.0.8/index.umd.min.js"
+      integrity="sha512-ACyKRtUNLdQdYDOt0LtbtchvrxxineHM7K8eXABMB3BidBPMZmOVfsMANuws278dbFFz69h3XqhYDPGYuYZAHQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script>
+      const waitInterval = 250; // ms
+      new TypeIt('#title', {
+        speed: 100,
+        deleteSpeed: 200,
+        lifeLike: true,
+        afterComplete: async (instance) => {
+          instance.destroy(); // Remove cursor
+          document.getElementById('subtitle').classList.toggle('hidden');
+          document.getElementById('links').classList.toggle('hidden');
+        },
+      })
+        .type('¿Qué', { delay: waitInterval })
+        .type(' ha', { delay: waitInterval })
+        .type(' pasado?', { delay: waitInterval })
+        .move(-11)
+        .delete(3) // Remove '¿Qué'
+        .type('K', { delay: waitInterval })
+        .move(2)
+        .delete(1, { delay: waitInterval }) // Remove space
+        .move(7)
+        .delete(1, { delay: waitInterval }) // Remove 'd'
+        .move(-4)
+        .delete(1, { delay: waitInterval }) // Remove space
+        .move(-1)
+        .delete(1, { delay: waitInterval }) // Remove space
+        .move(-1)
+        .delete(1, { delay: waitInterval }) // Remove space
+        .move(8, { delay: waitInterval })
+        .delete(1, { delay: waitInterval }) // Remove space
+        .type('.')
+        .go();
+    </script>
+  </body>
+</html>
